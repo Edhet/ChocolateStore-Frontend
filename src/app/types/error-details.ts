@@ -1,4 +1,4 @@
-export default interface Error {
+export default interface ErrorDetails {
   timestamp: Date,
   status: number,
   msg: string

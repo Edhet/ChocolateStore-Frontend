@@ -8,7 +8,7 @@ export default interface User {
   password: string | null,
   birthDate: Date,
   gender: Gender,
-  buyOrders: Array<BuyOrder>,
-  preferredCategory: string | null,
-  creationTimestamp: string,
+  buyOrders?: Array<BuyOrder>,
+  preferredCategory?: string | null,
+  creationTimestamp?: string,
 }
