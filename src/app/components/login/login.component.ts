@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
-import LoginCredentials from "../../types/requests/login-credentials";
+import LoginCredentials from "../../types/login-credentials";
 import {Router} from "@angular/router";
 
 @Component({
@@ -21,8 +21,7 @@ export class LoginComponent {
       return
 
     const response = await this.authService.login(this.userCredentials)
-
-    if (response)
+    if (!response)
       await this.router.navigate(["profile"])
   }
 }

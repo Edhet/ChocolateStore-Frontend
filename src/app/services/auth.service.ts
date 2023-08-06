@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import environment from "../environment/environment";
 import {firstValueFrom} from "rxjs";
 import {CookieService} from "ngx-cookie-service";
-import LoginCredentials from "../types/requests/login-credentials";
+import LoginCredentials from "../types/login-credentials";
 import ErrorDetails from "../types/error-details";
 import User from "../types/user";
 import {Router} from "@angular/router";
@@ -42,7 +42,6 @@ export class AuthService {
     if (typeof response != "string")
       return response
     this.cookieService.set(this.JWT_COOKIE_NAME, response)
-    await this.router.navigate(["profile"])
   }
 
   public logout(): void {
