@@ -3,43 +3,57 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import environment from "../environment/environment";
 import {firstValueFrom} from "rxjs";
 import {CookieService} from "ngx-cookie-service";
-import LoginCredentials from "../types/login-credentials";
+import LoginCredentials from "../types/requests/login-credentials";
 import ErrorDetails from "../types/error-details";
 import User from "../types/user";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  public readonly JWT_COOKIE_NAME = "token"
+
   private readonly LOGIN_ENDPOINT = environment.apiUrl + "/auth/login"
   private readonly AUTH_ENDPOINT = environment.apiUrl + "/auth"
   private readonly SIGN_UP_ENDPOINT = environment.apiUrl + "/auth/signup"
 
-  constructor(private httpClient: HttpClient, private cookieService: CookieService) {
-  }
-
-  public async login(credentials: LoginCredentials): Promise<String | ErrorDetails> {
-    let request = this.httpClient.post<String | ErrorDetails>(this.LOGIN_ENDPOINT, credentials)
-    let response = await firstValueFrom(request)
-
-    if (typeof response == "string")
-      this.cookieService.set("token", response)
-    return response
+  constructor(private httpClient: HttpClient, private cookieService: CookieService, private router: Router) {
   }
 
   public async userIsLogged(): Promise<boolean> {
-    const header = new HttpHeaders().set("Authorization", "Bearer " + this.cookieService.get("token"))
-    let request = this.httpClient.get<boolean>(this.AUTH_ENDPOINT, {headers: header})
+    if (!this.cookieService.get(this.JWT_COOKIE_NAME))
+      return false
+
+    const header = new HttpHeaders().set("Authorization", "Bearer " + this.cookieService.get(this.JWT_COOKIE_NAME))
+    let request = this.httpClient.get(this.AUTH_ENDPOINT, {headers: header})
 
     return await firstValueFrom(request)
-      .then(r => r)
+      .then(_r => true)
       .catch(_r => false)
   }
 
-  public async signup(newUser: User): Promise<true | ErrorDetails> {
-    const header = new HttpHeaders().set("Authorization", "Bearer " + this.cookieService.get("token"))
-    let request = this.httpClient.post<void | ErrorDetails>(this.SIGN_UP_ENDPOINT, newUser, {headers: header})
+  public async login(credentials: LoginCredentials): Promise<void | ErrorDetails> {
+    let request = this.httpClient.post<any>(this.LOGIN_ENDPOINT, credentials)
+    let response = await firstValueFrom(request)
+      .then(r => r.jwt)
+      .catch(r => r.error as ErrorDetails)
 
-    return await firstValueFrom(request).then(_r => true)
+    if (typeof response != "string")
+      return response
+    this.cookieService.set(this.JWT_COOKIE_NAME, response)
+    await this.router.navigate(["profile"])
+  }
+
+  public logout(): void {
+    this.cookieService.set(this.JWT_COOKIE_NAME, "")
+  }
+
+  public async signup(newUser: User): Promise<void | ErrorDetails> {
+    const header = new HttpHeaders().set("Authorization", "Bearer " + this.cookieService.get(this.JWT_COOKIE_NAME))
+    let request = this.httpClient.post<void>(this.SIGN_UP_ENDPOINT, newUser, {headers: header})
+
+    return await firstValueFrom(request)
+      .catch(r => r.error as ErrorDetails)
   }
 }

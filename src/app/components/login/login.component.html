@@ -1,0 +1,7 @@
+<p>login works!</p>
+
+<div class="flex gap-2 bg-blue-400 p-2">
+  <input type="text" [(ngModel)]="userCredentials.email">
+  <input type="text" [(ngModel)]="userCredentials.password">
+  <button (click)="tryLogin()">Login</button>
+</div>
