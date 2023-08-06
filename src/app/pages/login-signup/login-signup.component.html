@@ -1,1 +1,4 @@
-<app-login></app-login>
+<app-login *ngIf="!creatingAccount; else SignUp"></app-login>
+<ng-template #SignUp>
+  <app-signup></app-signup>
+</ng-template>

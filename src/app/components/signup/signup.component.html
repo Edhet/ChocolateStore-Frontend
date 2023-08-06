@@ -1,0 +1,30 @@
+<p>signup works!</p>
+<div class="flex flex-col gap-2 bg-blue-400 p-2">
+
+  <label for="firstName">First Name</label>
+  <input id="firstName" type="text" [(ngModel)]="userCredentials.firstName">
+
+  <label for="surname">Surname</label>
+  <input id="surname" type="text" [(ngModel)]="userCredentials.surname">
+
+  <label for="email">Email</label>
+  <input id="email" type="email" [(ngModel)]="userCredentials.email">
+
+  <label for="password">Password</label>
+  <input id="password" type="password" [(ngModel)]="userCredentials.password">
+
+  <label for="birthDate">Birth Date</label>
+  <input id="birthDate" type="date" [(ngModel)]="userCredentials.birthDate">
+
+  <label>Gender</label>
+  <div>
+    <label for="male">Male</label>
+    <input id="male" type="radio" value="MALE" [(ngModel)]="userCredentials.gender">
+  </div>
+  <div>
+    <label for="female">Female</label>
+    <input id="female" type="radio" value="FEMALE" [(ngModel)]="userCredentials.gender">
+  </div>
+
+  <button (click)="signUp()">Sign Up</button>
+</div>

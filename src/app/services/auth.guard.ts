@@ -7,12 +7,12 @@ export const authGuard: CanActivateFn = async (route, state) => {
   let router = inject(Router)
 
   const userIsLogged = await authService.userIsLogged()
-  const goingToLoginPage = route.routeConfig?.path == "login"
+  const goingToLoginSignupPage = route.routeConfig?.path == "login" || route.routeConfig?.path == "signup"
 
-  if (!userIsLogged && !goingToLoginPage) {
+  if (!userIsLogged && !goingToLoginSignupPage) {
     await router.navigate(["login"])
     return false
-  } else if (userIsLogged && goingToLoginPage) {
+  } else if (userIsLogged && goingToLoginSignupPage) {
     await router.navigate(["home"])
     return false
   }
