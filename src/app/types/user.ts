@@ -1,14 +1,10 @@
-import Gender from "./gender";
 import BuyOrder from "./buy-order";
+import Address from "./address";
+import UserRegisterInformation from "./user-register-information";
 
-export default interface User {
-  firstName: string,
-  surname: string,
-  email: string,
-  password: string | null,
-  birthDate: Date,
-  gender: Gender,
+export default interface User extends UserRegisterInformation{
+  address?: Address | null,
   buyOrders?: Array<BuyOrder>,
   preferredCategory?: string | null,
-  creationTimestamp?: string,
+  creationTimestamp?: string | null,
 }
