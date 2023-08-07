@@ -1,0 +1,12 @@
+<div class="mb-2">
+    <p> {{category?.name}} </p>
+    <div class="flex gap-4">
+
+        <div *ngFor="let product of category?.products">
+            <p> {{ product.name }} </p>
+            <p> {{ product.price }} </p>
+            <button (click)="buyProduct(product.id)"> Buy! </button>
+        </div>
+
+    </div>
+</div>

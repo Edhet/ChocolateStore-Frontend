@@ -6,7 +6,6 @@ import {CookieService} from "ngx-cookie-service";
 import LoginCredentials from "../types/login-credentials";
 import ErrorDetails from "../types/error-details";
 import User from "../types/user";
-import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +17,7 @@ export class AuthService {
   private readonly AUTH_ENDPOINT = environment.apiUrl + "/auth"
   private readonly SIGN_UP_ENDPOINT = environment.apiUrl + "/auth/signup"
 
-  constructor(private httpClient: HttpClient, private cookieService: CookieService, private router: Router) {
+  constructor(private httpClient: HttpClient, private cookieService: CookieService) {
   }
 
   public async userIsLogged(): Promise<boolean> {
@@ -36,7 +35,7 @@ export class AuthService {
   public async login(credentials: LoginCredentials): Promise<void | ErrorDetails> {
     let request = this.httpClient.post<any>(this.LOGIN_ENDPOINT, credentials)
     let response = await firstValueFrom(request)
-      .then(r => r.jwt)
+      .then(r => r.token)
       .catch(r => r.error as ErrorDetails)
 
     if (typeof response != "string")

@@ -1,1 +1,5 @@
 <p>products works!</p>
+
+<div *ngFor="let category of categoryWithProducts">
+    <app-product-category [category]="category"></app-product-category>
+</div>
