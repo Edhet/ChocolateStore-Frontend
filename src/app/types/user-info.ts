@@ -2,7 +2,7 @@ import BuyOrder from "./buy-order";
 import Address from "./address";
 import UserRegisterInformation from "./user-register-information";
 
-export default interface User extends UserRegisterInformation{
+export default interface UserInfo extends UserRegisterInformation{
   address?: Address | null,
   buyOrders?: Array<BuyOrder>,
   preferredCategory?: string | null,
