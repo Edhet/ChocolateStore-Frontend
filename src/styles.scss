@@ -37,3 +37,22 @@
   animation-name: fade-in;
   animation-duration: 2s;
 }
+
+@keyframes static-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
+  }
+}
+
+.quick-static-fade-in {
+  animation-name: static-fade-in;
+  animation-duration: 1s;
+}
+
+.slow-static-fade-in {
+  animation-name: static-fade-in;
+  animation-duration: 2s;
+}
