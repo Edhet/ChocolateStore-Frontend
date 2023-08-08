@@ -1,1 +1,6 @@
+<app-navbar *ngIf="!(this.router.url == '/login' || this.router.url == '/signup'); else BackBar"></app-navbar>
+<ng-template #BackBar>
+  <app-back-bar ></app-back-bar>
+</ng-template>
+
 <router-outlet></router-outlet>

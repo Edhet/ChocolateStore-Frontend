@@ -14,6 +14,9 @@ import { LoginComponent } from './components/login/login.component';
 import {FormsModule} from "@angular/forms";
 import { SignupComponent } from './components/signup/signup.component';
 import { ProductCategoryComponent } from './components/product-category/product-category.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import {NgOptimizedImage} from "@angular/common";
+import { BackBarComponent } from './components/back-bar/back-bar.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +28,16 @@ import { ProductCategoryComponent } from './components/product-category/product-
     LoginSignupComponent,
     LoginComponent,
     SignupComponent,
-    ProductCategoryComponent
+    ProductCategoryComponent,
+    NavbarComponent,
+    BackBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgOptimizedImage
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

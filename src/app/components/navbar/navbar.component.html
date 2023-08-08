@@ -1,0 +1,62 @@
+<nav class="font-montserrat text-dark px-12 md:px-24 xl:px-36 pt-4 sticky top-0">
+
+  <div class="flex justify-between border-b-[3px] border-dark px-2">
+
+    <p class="text-lg my-auto font-marko">
+      DuCacau
+    </p>
+
+    <div class="hidden lg:flex gap-16 font-medium">
+      <a class="py-2 relative before:transition-all before:ease-in-out before:bg-dark before:-start-[15%] before:absolute before:bottom-0 before:w-[130%] before:-z-10
+      {{(router.url == '/home') ? ACTIVE_PAGE_STYLE : INACTIVE_PAGE_STYLE}}" [routerLink]="['/home']"> Home </a>
+
+      <a class="py-2 relative before:transition-all before:ease-in-out before:bg-dark before:-start-[15%] before:absolute before:bottom-0 before:w-[130%] before:-z-10
+      {{(router.url == '/products') ? ACTIVE_PAGE_STYLE : INACTIVE_PAGE_STYLE}}" [routerLink]="['/products']"> Products </a>
+
+      <a class="py-2 relative before:transition-all before:ease-in-out before:bg-dark before:-start-[15%] before:absolute before:bottom-0 before:w-[130%] before:-z-10
+      {{(router.url == '/about-us') ? ACTIVE_PAGE_STYLE : INACTIVE_PAGE_STYLE}}" [routerLink]="['/about-us']"> About Us </a>
+    </div>
+
+    <div class="hidden lg:flex gap-4">
+      <a class="p-2 relative before:transition-all before:ease-in-out before:bg-dark before:-start-[15%] before:absolute before:bottom-0 before:w-[130%] before:-z-10
+         {{(router.url == '/cart') ? ACTIVE_PAGE_STYLE : INACTIVE_PAGE_STYLE}}" [routerLink]="['/cart']">
+        <svg class="bi bi-bag h-6 w-6 {{(router.url == '/cart') ? 'text-light' : ''}}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+        </svg>
+      </a>
+
+      <a class="p-2 relative before:transition-all before:ease-in-out before:bg-dark before:-start-[15%] before:absolute before:bottom-0 before:w-[130%] before:-z-10
+         {{(router.url == '/profile') ? ACTIVE_PAGE_STYLE : INACTIVE_PAGE_STYLE}}"  [routerLink]="['/profile']">
+        <svg class="bi bi-person-circle h-6 w-6 {{(router.url == '/profile') ? 'text-light' : ''}}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="flex lg:hidden">
+      <button class="p-2" (click)="showHamburgerMenu = true">
+        <svg class="bi bi-list h-6 w-6 text-dark" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div *ngIf="showHamburgerMenu" class="absolute top-0 left-0 w-[100vw] h-[100vh] bg-light font-montserrat text-dark">
+  <button class="absolute top-4 right-4 quick-fade-in" (click)="showHamburgerMenu = false">
+    <svg class="bi bi-x-lg h-6 w-6 text-dark" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  viewBox="0 0 16 16">
+      <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+    </svg>
+  </button>
+
+  <div class="flex flex-col text-center mt-12 gap-4">
+    <a class="slow-fade-in" (click)="showHamburgerMenu = false" [routerLink]="['/home']"> Home </a>
+    <a class="slow-fade-in" (click)="showHamburgerMenu = false" [routerLink]="['/products']"> Products </a>
+    <a class="slow-fade-in" (click)="showHamburgerMenu = false" [routerLink]="['/about-us']"> About Us </a>
+    <a class="slow-fade-in" (click)="showHamburgerMenu = false" [routerLink]="['/cart']"> Cart </a>
+    <a class="slow-fade-in" (click)="showHamburgerMenu = false" [routerLink]="['/profile']"> Profile </a>
+  </div>
+</div>
+
