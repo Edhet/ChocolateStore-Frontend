@@ -12,7 +12,9 @@ module.exports = {
       },
       colors: {
         light: '#FBF6EB',
+        lightHover: '#bcada6',
         dark: '#50251F',
+        darkHover: '#3d1f1b',
         caramel: '#C9660A'
       }
     },
