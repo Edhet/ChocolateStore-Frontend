@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import Product from "../../types/product";
+import {ContentService} from "../../services/content.service";
 
 @Component({
   selector: 'app-home',
@@ -13,7 +15,14 @@ export class HomeComponent implements OnInit {
 
   private readonly CARROUSEL_SECONDS = 8000
 
-  ngOnInit() {
+  private readonly AMOUNT_OF_PRODUCTS: number = 6
+  public products: Product[] = []
+
+  constructor(private contentService: ContentService) {
+  }
+
+  async ngOnInit() {
+    this.products = await this.contentService.getAllProducts(this.AMOUNT_OF_PRODUCTS)
     this.startCarrouselRotation()
   }
 
