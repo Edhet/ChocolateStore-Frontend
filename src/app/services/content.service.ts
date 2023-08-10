@@ -21,8 +21,11 @@ export class ContentService {
       .catch(r => r.error as ErrorDetails)
   }
 
-  public async getAllProducts(): Promise<Product[]> {
-    let request = this.httpClient.get<Product[]>(this.PRODUCTS_ENDPOINT + "/all")
+  public async getAllProducts(count?: number): Promise<Product[]> {
+    let uri = this.PRODUCTS_ENDPOINT + "/all"
+    if (count)
+      uri = `${uri}/${count}`
+    let request = this.httpClient.get<Product[]>(uri)
     return await firstValueFrom(request)
   }
 
