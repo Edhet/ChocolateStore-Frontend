@@ -168,8 +168,8 @@
       Nossos produtos <br>
       pensados pra você
     </h2>
-    <div class="flex gap-4 pe-6 md:pe-12 overflow-x-auto">
-      <div class=" bg-dark min-w-[18rem] max-w-[18rem] font-marko rounded-lg p-3" *ngFor="let product of products">
+    <div class="flex gap-12 pe-6 md:pe-12 overflow-x-auto">
+      <div class=" bg-dark min-w-[18rem] max-w-[18rem] font-marko rounded-lg p-3 header-fade-in" *ngFor="let product of products">
         <img class="rounded-lg" src="./assets/home/whitechoc.png">
         <div class="flex justify-between mt-3">
           <div>
@@ -178,7 +178,7 @@
           </div>
           <div class="my-auto text-end">
             <p> {{ product.price }} </p>
-            <p class="text-sm line-through"> {{ product.price}} </p>
+            <p class="text-sm line-through"> {{ beLegitimateBusiness(product.price) }} </p>
           </div>
         </div>
 

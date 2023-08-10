@@ -32,6 +32,9 @@ export class HomeComponent implements OnInit {
       if (this.carrouselIndex + 1 == 4) this.carrouselIndex = 1
       else this.carrouselIndex++
     }
+  }
 
+  public beLegitimateBusiness(actualPrice: number): string {
+    return (actualPrice + 10).toString().slice(0, 5)
   }
 }
