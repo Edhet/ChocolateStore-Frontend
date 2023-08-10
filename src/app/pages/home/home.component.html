@@ -1,53 +1,162 @@
 <main class="font-inter">
 
-  <section class="flex flex-col gap-6 mt-[10%] mb-[10%] min-w-full">
-    <h1 class="mx-auto text-dark font-marko text-[10vmin] lg:text-8xl w-fit text-center quick-fade-in">
+  <section class=" relative flex flex-col gap-6 md:px-36 mt-[10%] mb-[15%] min-w-full">
+
+    <img class="invisible lg:visible -z-10 absolute left-[4%] -top-[22%]" src="./assets/home/banner2.png">
+
+    <h1 class="mx-auto text-dark font-marko text-[10vmin] lg:text-8xl w-fit text-center header-fade-in">
       Saboreie <br>
       momentos
     </h1>
-    <p class="mx-auto text-dark w-3/5 md:w-1/3 text-center slow-static-fade-in">
+    <p class="mx-auto text-dark w-3/5 lg:w-1/3 text-center text-fade-in">
       O encontro perfeito entre tradição artesanal e inovação tecnológica, nossos chocolates feitos com cacau de origem
       sustentável são uma verdadeira experiência do sabor da infância.
     </p>
-    <button class="mx-auto bg-dark font-marko text-light py-2 px-8 rounded-3xl w-fit quick-static-fade-in">
+    <button class="mx-auto bg-dark font-marko text-light py-2 px-8 rounded-3xl w-fit header-fade-in">
       Delicie-se
     </button>
+
+    <img class="invisible lg:visible -z-10 absolute right-[6%] -bottom-[36%]" src="./assets/home/banner1.png">
+
   </section>
 
-  <section class="md:flex text-center md:text-start bg-dark text-light gap-12 py-12 px-12 lg:px-36">
-    <div class="mx-auto flex flex-col w-2/3 md:w-1/2">
-      <h2 class="font-marko text-2xl quick-fade-in">
-        Um chocolate quente é como <br>
-        o abraço da gente
-      </h2>
-    </div>
-
-    <div class="mx-auto flex flex-col w-2/3 md:w-1/2 py-8">
-      <div class="slow-fade-in">
-        <p>
-          Delicie-se com nosso <span class="font-bold">chocolate quente gourmet</span> e <span class="font-bold">café expresso</span>,
-          uma experiência única de sabor e conforto.
-          Selecionamos cuidadosamente os melhores grãos de cacau e café, criando uma mistura cativante que envolve os
-          sentidos desde o primeiro gole. Combinando a riqueza do cacau com o toque suave do leite fresco e a suavidade do
-          café com a seleção dos melhores grãos, cada xícara é única e perfeita para cada momento.
-        </p>
-        <p class="mt-6">
-          Preparado com dedicação e paixão, nosso chocolate quente e o nosso café expresso é a escolha perfeita para
-          aquecer
-          corações em qualquer ocasião especial, trazendo o abraço caloroso das melhores lembranças.
-        </p>
+  <section>
+    <div class="w-full h-[60px] bg-repeat-x" style="background-image: url('./assets/home/pattern.png')"></div>
+    <div class="md:flex text-center md:text-start bg-dark text-light gap-12 py-12 px-12 lg:px-36">
+      <div class="mx-auto flex flex-col gap-8 md:w-1/2">
+        <h2 class="font-marko text-2xl header-fade-in">
+          Um chocolate quente é como <br>
+          o abraço da gente
+        </h2>
+        <img class="mx-auto my-auto max-w-[65%]" src="./assets/home/highlightImg.png">
       </div>
-      <button class="bg-light text-dark font-marko py-2 px-8 rounded-3xl w-fit mx-auto mt-6 quick-fade-in">
-        Experimente
-      </button>
+
+      <div class="mx-auto flex flex-col md:w-1/2 py-8">
+        <div class="text-fade-in">
+          <p>
+            Delicie-se com nosso <span class="font-bold">chocolate quente gourmet</span> e <span class="font-bold">café expresso</span>,
+            uma experiência única de sabor e conforto.
+            Selecionamos cuidadosamente os melhores grãos de cacau e café, criando uma mistura cativante que envolve os
+            sentidos desde o primeiro gole. Combinando a riqueza do cacau com o toque suave do leite fresco e a
+            suavidade
+            do
+            café com a seleção dos melhores grãos, cada xícara é única e perfeita para cada momento.
+          </p>
+          <p class="mt-6">
+            Preparado com dedicação e paixão, nosso chocolate quente e o nosso café expresso é a escolha perfeita para
+            aquecer
+            corações em qualquer ocasião especial, trazendo o abraço caloroso das melhores lembranças.
+          </p>
+        </div>
+        <button class="bg-light text-dark font-marko py-2 px-8 rounded-3xl w-fit mx-auto mt-6 header-fade-in">
+          Experimente
+        </button>
+      </div>
     </div>
+    <div class="w-full h-[60px] bg-repeat-x"
+         style="background-image: url('./assets/home/pattern.png'); transform: scaleY(-1)"></div>
   </section>
 
-  <section class="flex flex-col text-dark mt-[2%] mb-[2%]">
-    <h2 class="text-2xl font-marko mx-auto">
+  <section class="flex flex-col px-12 gap-6 text-dark mt-[2%] mb-[6%]">
+    <h2 class="text-2xl font-marko mx-auto my-6 header-fade-in">
       Selos de Qualidade
     </h2>
 
+    <div class="flex flex-col md:flex-row gap-8 md:gap-12 lg:px-[20%]">
+      <img class="m-auto w-36" src="./assets/home/seal1.png">
+      <p class="my-auto text-fade-in">
+        O selo <span class="font-bold">Rainforest Alliance Certified</span> em nosso chocolate atesta o compromisso com
+        práticas agrícolas sustentáveis
+        e socialmente responsáveis, garantindo que cada mordida seja uma experiência de sabor consciente, respeitando a
+        natureza e as comunidades produtoras de cacau.
+      </p>
+    </div>
+
+    <div class="flex flex-col-reverse md:flex-row gap-8 md:gap-12 lg:px-[20%]">
+      <p class="my-auto md:text-end text-fade-in">
+        O selo de <span class="font-bold">Certificado de Produto Vegano da SVB</span> garante que nosso chocolate é
+        produzido sem qualquer ingrediente
+        de origem animal, atestando nosso compromisso com a ética, sustentabilidade e qualidade, proporcionando uma
+        experiência deliciosa sem crueldade.
+      </p>
+      <img class="m-auto w-36" src="./assets/home/seal2.png">
+
+    </div>
+  </section>
+
+  <section class="flex flex-col md:flex-row justify-between text-dark mt-[2%] mb-[6%]">
+
+    <div class="my-auto flex md:flex-col gap-6 text-2xl py-6 pe-6 ps-12 lg:ps-36">
+      <div class="hidden md:flex mb-1 flex gap-2">
+        <p class="font-inter header-fade-in">Depoimentos</p>
+        <div class="my-auto bg-dark rounded-full h-[3px] w-[4vw]"></div>
+      </div>
+      <p class="font-marko mx-auto text-center md:mx-0 md:text-start header-fade-in">O que dizem os <br> apaixonados</p>
+      <img class="hidden md:block w-32" src="./assets/home/balls.png">
+    </div>
+
+    <div class="flex flex-col bg-caramel text-light md:ms-12 lg:ms-[20%] py-12 ps-12 pe-12 lg:pe-[10%]">
+      <div *ngIf="carrouselIndex == 1">
+        <div class="relative">
+          <p class="font-marko text-7xl absolute text-fade-in">“</p>
+          <p class="font-inter text-lg font-medium pt-8 text-fade-in">Uma experiência deliciosa que me transportou para
+            tardes especiais com a minha avó. Os sabores equilibrados entre doçura e amargor são irresistíveis. Cada
+            mordida é um doce carinho no coração!”</p>
+        </div>
+        <div class="flex mt-auto pt-8">
+          <img class="rounded-full h-12 me-3 header-fade-in" src="./assets/home/aiPerson1.jpg">
+          <div>
+            <p class="font-extrabold text-lg header-fade-in">Sara Silva</p>
+            <p class="text-sm text-fade-in">Analista e desenvolvedora especialista em IAs</p>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="carrouselIndex == 2">
+        <div class="relative">
+          <p class="font-marko text-7xl absolute text-fade-in">“</p>
+          <p class="font-inter text-lg font-medium pt-8 text-fade-in">A DuCacau me conduziu a um universo semelhante ao
+            das sensações arquitetônicas. Os sabores harmoniosos, lembravam a composição equilibrada de elementos em um
+            projeto arquitetônico."</p>
+        </div>
+        <div class="flex mt-auto pt-8">
+          <img class="rounded-full h-12 me-3 header-fade-in" src="./assets/home/aiPerson2.jpg">
+          <div>
+            <p class="font-extrabold text-lg header-fade-in">Camila Fernandes</p>
+            <p class="text-sm text-fade-in">Arquiteta</p>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="carrouselIndex == 3">
+        <div class="relative">
+          <p class="font-marko text-7xl absolute text-fade-in">“</p>
+          <p class="font-inter text-lg font-medium pt-8 text-fade-in">A sinfonia de sabores dos chocolates da DuCacau
+            despertaram memórias e emoções que eu nunca imaginei sentir ao comer um chocolate. Cada mordida era como
+            explorar um novo capítulo de uma história."</p>
+        </div>
+        <div class="flex mt-auto pt-8">
+          <img class="rounded-full h-12 me-3 header-fade-in" src="./assets/home/aiPerson3.jpg">
+          <div>
+            <p class="font-extrabold text-lg header-fade-in">Marcelo Oliveira</p>
+            <p class="text-sm text-fade-in">Dramaturgo</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 flex justify-center gap-3">
+        <button
+          class="h-3 rounded-full transition-all {{carrouselIndex == 1 ? SELECTED_CARROUSEL : UNSELECTED_CARROUSEL}}"
+          (click)="carrouselIndex = 1"></button>
+        <button
+          class="h-3 rounded-full transition-all {{carrouselIndex == 2 ? SELECTED_CARROUSEL : UNSELECTED_CARROUSEL}}"
+          (click)="carrouselIndex = 2"></button>
+        <button
+          class="h-3 rounded-full transition-all {{carrouselIndex == 3 ? SELECTED_CARROUSEL : UNSELECTED_CARROUSEL}}"
+          (click)="carrouselIndex = 3"></button>
+
+      </div>
+    </div>
   </section>
 </main>
 

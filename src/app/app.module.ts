@@ -16,6 +16,7 @@ import {SignupComponent} from './components/signup/signup.component';
 import {ProductCategoryComponent} from './components/product-category/product-category.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {NgOptimizedImage} from "@angular/common";
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {NgOptimizedImage} from "@angular/common";
     LoginComponent,
     SignupComponent,
     ProductCategoryComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

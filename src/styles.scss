@@ -17,7 +17,7 @@
   src: url("./assets/fonts/Montserrat.ttf") format("truetype");
 }
 
-@keyframes fade-in {
+@keyframes movement-fade-in {
   from {
     opacity: 0;
     transform: translateY(20%);
@@ -28,14 +28,11 @@
   }
 }
 
-.quick-fade-in {
-  animation-name: fade-in;
-  animation-duration: 1s;
-}
 
-.slow-fade-in {
-  animation-name: fade-in;
-  animation-duration: 2s;
+
+.header-fade-in {
+  animation-name: movement-fade-in;
+  animation-duration: 1s;
 }
 
 @keyframes static-fade-in {
@@ -47,12 +44,24 @@
   }
 }
 
-.quick-static-fade-in {
-  animation-name: static-fade-in;
-  animation-duration: 1s;
-}
-
-.slow-static-fade-in {
+.text-fade-in {
   animation-name: static-fade-in;
   animation-duration: 2s;
+}
+
+@keyframes navbar-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+  to {
+    opacity: 100;
+    transform: translateY(0%);
+  }
+}
+
+.navbar-fade-in {
+  animation: navbar-fade-in;
+  animation-duration: 0.8s;
+  animation-play-state: revert;
 }
