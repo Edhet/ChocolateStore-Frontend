@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   private readonly CARROUSEL_SECONDS = 8000
 
   private readonly AMOUNT_OF_PRODUCTS: number = 6
-  public productExcerpt?: Product[]
+  public productExcerpt: Product[] = []
 
   constructor(private contentService: ContentService) {
   }

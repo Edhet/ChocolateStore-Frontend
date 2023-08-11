@@ -8,7 +8,7 @@ import {createFakePrice} from "../../util/util";
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent {
-  @Input() productList?: Product[]
+  @Input() productList: Product[] = []
 
   public createFakePrice(actualPrice: number) {
     return createFakePrice(actualPrice)
