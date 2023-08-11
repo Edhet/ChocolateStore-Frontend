@@ -19,6 +19,7 @@ import {NgOptimizedImage} from "@angular/common";
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     NavbarComponent,
     FooterComponent,
     ProductListComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
