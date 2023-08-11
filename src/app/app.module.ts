@@ -17,6 +17,8 @@ import {ProductCategoryComponent} from './components/product-category/product-ca
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {NgOptimizedImage} from "@angular/common";
 import { FooterComponent } from './components/footer/footer.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { FooterComponent } from './components/footer/footer.component';
     SignupComponent,
     ProductCategoryComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ProductListComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

@@ -16,13 +16,13 @@ export class HomeComponent implements OnInit {
   private readonly CARROUSEL_SECONDS = 8000
 
   private readonly AMOUNT_OF_PRODUCTS: number = 6
-  public products: Product[] = []
+  public productExcerpt?: Product[]
 
   constructor(private contentService: ContentService) {
   }
 
   async ngOnInit() {
-    this.products = await this.contentService.getAllProducts(this.AMOUNT_OF_PRODUCTS)
+    this.productExcerpt = await this.contentService.getAllProducts(this.AMOUNT_OF_PRODUCTS)
     this.startCarrouselRotation()
   }
 
@@ -32,9 +32,5 @@ export class HomeComponent implements OnInit {
       if (this.carrouselIndex + 1 == 4) this.carrouselIndex = 1
       else this.carrouselIndex++
     }
-  }
-
-  public beLegitimateBusiness(actualPrice: number): string {
-    return (actualPrice + 10).toString().slice(0, 5)
   }
 }
