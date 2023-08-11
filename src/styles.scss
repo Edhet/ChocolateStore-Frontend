@@ -65,3 +65,22 @@
   animation-duration: 0.8s;
   animation-play-state: revert;
 }
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #50251F;
+  border-radius: 28px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #3d1f1b;
+}
+
