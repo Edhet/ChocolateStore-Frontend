@@ -1,4 +1,18 @@
-<section class="min-w-[100%] mb-[5%] mt-[5%] font-inter flex flex-col md:flex-row">
+
+<div class="relative text-light px-[4%] mt-[2%]">
+  <a [routerLink]="['/about-us']" class=" flex justify-between absolute top-0 left-0 w-[92%] h-full mx-[4%] px-4 z-10 transition-all text-light hover:text-lightHover">
+    <div class="my-auto">
+      <h1 class="text-xl md:text-3xl font-marko">A melhor seleção de chocolates</h1>
+      <p class="font-marko w-full top-2/4 left-[5%] text-sm md:text-base">Saiba como nós fazemos nossos incríveis produtos</p>
+    </div>
+    <svg class="bi bi-arrow-right h-12 w-12 my-auto" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+    </svg>
+  </a>
+  <img class="mx-auto w-full h-32 rounded-lg object-cover brightness-50 hover:" src="./assets/products/banner1.png">
+</div>
+
+<section class="min-w-[100%] mb-[5%] mt-[2%] font-inter flex flex-col md:flex-row">
   <div class="gap-4 flex flex-col sticky right-0 md:top-32 bg-caramel text-light min-w-fit md:me-12 py-12 pe-12 ps-12 lg:ps-[10%]
   h-fit mb-8 md:mb-0">
     <h2 class="text-2xl font-extrabold header-fade-in">Filtrar</h2>
@@ -35,7 +49,7 @@
     <div class="my-auto" *ngIf="!fetchingData; else productsSpinner">
       <ng-container *ngIf="filteredCategoryProducts.length > 0; else empty">
         <div *ngFor="let category of filteredCategoryProducts">
-          <p class="font-marko text-2xl px-12 my-2 header-fade-in">{{ category.name }}</p>
+          <p class="font-marko text-2xl px-12 mb-1 mt-2 header-fade-in">{{ category.name }}</p>
           <app-product-cards [productList]="category.products"></app-product-cards>
         </div>
       </ng-container>
@@ -54,7 +68,3 @@
   </div>
 </section>
 
-<!--<div class="relative text-light ">-->
-
-<!--  <img class="mx-auto w-1/2 rounded-lg" src="./assets/products/banner1.png">-->
-<!--</div>-->
