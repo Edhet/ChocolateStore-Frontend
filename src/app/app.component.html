@@ -1,3 +1,7 @@
-<app-navbar *ngIf="!(this.router.url == '/login' || this.router.url == '/signup' || this.router.url == '/404')"></app-navbar>
-<router-outlet></router-outlet>
-<app-footer *ngIf="!(this.router.url == '/login' || this.router.url == '/signup' || this.router.url == '/404')"></app-footer>
+<div class="flex flex-col min-h-screen
+{{isNonFullscreenPage ? 'justify-between' : ''}}">
+  <app-navbar *ngIf="isNonFullscreenPage"></app-navbar>
+  <router-outlet (activate)="window.scrollTo(0, 0)"></router-outlet>
+  <app-footer *ngIf="isNonFullscreenPage"></app-footer>
+</div>
+
