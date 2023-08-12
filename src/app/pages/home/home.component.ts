@@ -22,8 +22,8 @@ export class HomeComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.productExcerpt = await this.contentService.getAllProducts(this.AMOUNT_OF_PRODUCTS)
     this.startCarrouselRotation()
+    this.productExcerpt = await this.contentService.getAllProducts(this.AMOUNT_OF_PRODUCTS)
   }
 
   private async startCarrouselRotation() {

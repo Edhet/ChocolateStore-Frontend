@@ -29,8 +29,8 @@ export class ContentService {
     return await firstValueFrom(request)
   }
 
-  public async getCategoryNames(): Promise<String[]> {
-    let request = this.httpClient.get<String[]>(this.CATEGORY_ENDPOINT + "/names")
+  public async getCategoryNames(): Promise<string[]> {
+    let request = this.httpClient.get<string[]>(this.CATEGORY_ENDPOINT + "/names")
     return await firstValueFrom(request)
   }
 

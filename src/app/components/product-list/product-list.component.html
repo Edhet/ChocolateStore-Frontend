@@ -1,5 +1,5 @@
 <div class="flex gap-12 pe-6 min-h-[23rem] max-h-[23rem] md:pe-12 overflow-x-auto" *ngIf="productList.length > 0; else spinner">
-    <div class=" bg-dark min-w-[18rem] max-w-[18rem] min-h-[22rem] max-h-[22rem] font-marko rounded-lg p-3 header-fade-in" *ngFor="let product of productList">
+    <div class=" bg-dark min-w-[18rem] max-w-[18rem] min-h-[22rem] max-h-[22rem] font-marko rounded-lg p-3 product-fade-in" *ngFor="let product of productList">
       <img class="rounded-lg" src="./assets/home/whitechoc.png">
       <div class="flex justify-between mt-3">
         <div>
@@ -15,7 +15,7 @@
 </div>
 <ng-template #spinner>
   <div class="h-full w-full flex justify-center min-h-[23rem] max-h-[23rem]">
-    <svg class="animate-spin ml-3.5 my-auto mr-3 h-10 w-10 text-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <svg class="animate-spin my-auto h-10 w-10 text-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
       <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
       <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
     </svg>

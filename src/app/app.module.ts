@@ -13,13 +13,13 @@ import {LoginSignupComponent} from './pages/login-signup/login-signup.component'
 import {LoginComponent} from './components/login/login.component';
 import {FormsModule} from "@angular/forms";
 import {SignupComponent} from './components/signup/signup.component';
-import {ProductCategoryComponent} from './components/product-category/product-category.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {NgOptimizedImage} from "@angular/common";
-import { FooterComponent } from './components/footer/footer.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
-import { AboutUsComponent } from './pages/about-us/about-us.component';
-import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {ProductListComponent} from './components/product-list/product-list.component';
+import {AboutUsComponent} from './pages/about-us/about-us.component';
+import {PageNotFoundComponent} from './pages/page-not-found/page-not-found.component';
+import {ProductCardsComponent} from './components/product-cards/product-cards.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +31,12 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     LoginSignupComponent,
     LoginComponent,
     SignupComponent,
-    ProductCategoryComponent,
     NavbarComponent,
     FooterComponent,
     ProductListComponent,
     AboutUsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProductCardsComponent
   ],
   imports: [
     BrowserModule,
