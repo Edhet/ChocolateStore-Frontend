@@ -1,6 +1,6 @@
 <div class="flex flex-col min-h-screen
 {{isNonFullscreenPage ? 'justify-between' : ''}}">
-  <app-navbar *ngIf="isNonFullscreenPage"></app-navbar>
+  <app-navbar *ngIf="isNonFullscreenPage" class="sticky top-0 z-40"></app-navbar>
   <router-outlet (activate)="window.scrollTo(0, 0)"></router-outlet>
   <app-footer *ngIf="isNonFullscreenPage"></app-footer>
 </div>
