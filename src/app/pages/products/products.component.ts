@@ -13,6 +13,9 @@ export class ProductsComponent implements OnInit {
   public categoryFilters: string[] = []
 
   public inactiveCategories: string[] = []
+
+  public minPrice = Number.MAX_VALUE
+  public maxPrice = 0
   public priceFilter?: number
 
   public JSONcategoryProducts: string = ""
@@ -25,9 +28,22 @@ export class ProductsComponent implements OnInit {
 
   async ngOnInit() {
     this.categoryFilters = await this.contentService.getCategoryNames()
-    this.JSONcategoryProducts = JSON.stringify(await this.contentService.getAllCategories())
+    const data = await this.contentService.getAllCategories()
+
+    this.getMinMaxPrices(data)
+    this.JSONcategoryProducts = JSON.stringify(data)
+
     this.applyFilters()
     this.fetchingData = false
+  }
+
+  public getMinMaxPrices(data: Category[]) {
+    for (const category of data)
+      category.products.forEach(prod => {
+        if (prod.price > this.maxPrice) this.maxPrice = prod.price
+        if (prod.price < this.minPrice) this.minPrice = prod.price
+      })
+    this.priceFilter = this.maxPrice
   }
 
   public applyFilters() {
@@ -49,16 +65,5 @@ export class ProductsComponent implements OnInit {
       this.inactiveCategories.splice(stringIndex, 1)
     }
     this.applyFilters()
-  }
-
-  public changeNumberFilter() {
-    if (this.priceFilter && this.priceFilter < 1)
-      this.priceFilter = undefined
-    this.applyFilters()
-  }
-
-  public ignoreInvalidNumberInput(event: KeyboardEvent) {
-    if (this.invalidChars.includes(event.key))
-      event.preventDefault()
   }
 }
