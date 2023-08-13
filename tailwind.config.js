@@ -15,7 +15,8 @@ module.exports = {
         lightHover: '#bcada6',
         dark: '#50251F',
         darkHover: '#3d1f1b',
-        caramel: '#C9660A'
+        caramel: '#C9660A',
+        alert: '#d33737'
       }
     },
   },

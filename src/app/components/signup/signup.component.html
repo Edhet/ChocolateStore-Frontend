@@ -1,30 +1,50 @@
-<p>signup works!</p>
-<div class="flex flex-col gap-2 bg-blue-400 p-2">
+<div class="flex flex-col gap-2 text-dark font-inter z-10">
+  <h1 class="font-inter font-bold text-fade-in text-xl">Criar Conta</h1>
 
-  <label for="firstName">First Name</label>
-  <input id="firstName" type="text" [(ngModel)]="userCredentials.firstName">
-
-  <label for="surname">Surname</label>
-  <input id="surname" type="text" [(ngModel)]="userCredentials.surname">
-
-  <label for="email">Email</label>
-  <input id="email" type="email" [(ngModel)]="userCredentials.email">
-
-  <label for="password">Password</label>
-  <input id="password" type="password" [(ngModel)]="userCredentials.password">
-
-  <label for="birthDate">Birth Date</label>
-  <input id="birthDate" type="date" [(ngModel)]="userCredentials.birthDate">
-
-  <label>Gender</label>
-  <div>
-    <label for="male">Male</label>
-    <input id="male" type="radio" value="MALE" [(ngModel)]="userCredentials.gender">
-  </div>
-  <div>
-    <label for="female">Female</label>
-    <input id="female" type="radio" value="FEMALE" [(ngModel)]="userCredentials.gender">
+  <div class="flex flex-col border border-dark p-1 rounded-lg header-fade-in">
+    <label for="firstName" class="ps-2 text-sm">Nome</label>
+    <input id="firstName" type="text" class="bg-light" [(ngModel)]="userCredentials.firstName">
   </div>
 
-  <button (click)="signUp()">Sign Up</button>
+  <div class="flex flex-col border border-dark p-1 rounded-lg header-fade-in">
+    <label for="surname" class="ps-2 text-sm">Sobrenome</label>
+    <input id="surname" type="text" class="bg-light"  [(ngModel)]="userCredentials.surname">
+  </div>
+
+  <div class="flex flex-col border border-dark p-1 rounded-lg header-fade-in">
+    <label for="email" class="ps-2 text-sm">Email</label>
+    <input id="email" type="email" class="bg-light"  [(ngModel)]="userCredentials.email">
+  </div>
+  <div class="flex flex-col border border-dark p-1 rounded-lg header-fade-in">
+    <label for="password" class="ps-2 text-sm">Senha</label>
+    <input id="password" type="password" class="bg-light"  [(ngModel)]="userCredentials.password">
+  </div>
+  <div class="flex flex-col border border-dark p-1 rounded-lg header-fade-in">
+    <label for="birthDate" class="ps-2 text-sm">Aniversário</label>
+    <input id="birthDate" type="date" class="bg-light"  [(ngModel)]="userCredentials.birthDate">
+  </div>
+  <div class="flex flex-col border border-dark p-1 rounded-lg header-fade-in">
+    <label class="ps-2 text-sm">Sexo</label>
+    <div class="flex gap-4 mx-auto">
+      <div>
+        <label for="male" class="text-sm font-medium">Homem</label>
+        <input class="ms-1 accent-dark"  id="male" type="radio" value="MALE" [(ngModel)]="userCredentials.gender">
+      </div>
+      <div>
+        <label for="female" class="text-sm font-medium">Mulher</label>
+        <input class="ms-1 accent-dark" id="female" type="radio" value="FEMALE" [(ngModel)]="userCredentials.gender">
+      </div>
+    </div>
+  </div>
+
+  <button (click)="signUp()" class="transition-all hover:bg-darkHover mx-auto bg-dark font-marko text-light py-2 px-8
+  rounded-3xl w-fit mt-2 text-fade-in">
+    Criar
+  </button>
+
+  <a class="ms-auto flex w-fit py-2 gap-2 text-fade-in relative before:transition-all before:z-10
+    before:ease-in-out before:bg-dark before:absolute before:bottom-0 before:w-full before:h-0 hover:before:h-1.5"
+     [routerLink]="['/login']">
+    <p class="font-inter font-medium"> Entrar </p>
+  </a>
 </div>

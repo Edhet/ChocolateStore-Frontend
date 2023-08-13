@@ -1,7 +1,24 @@
-<p>login works!</p>
+<div class="flex flex-col gap-2 text-dark font-inter z-10">
+  <h1 class="font-inter font-bold text-fade-in text-xl">Fazer Login</h1>
+  <!--  TODO: fix autofill-->
+  <div class="flex flex-col border border-dark p-1 rounded-lg header-fade-in">
+    <label for="email" class="ps-2 text-sm">Email</label>
+    <input id="email" type="text" class="bg-light autofill:!bg-light" [(ngModel)]="userCredentials.email">
+  </div>
+  <div class="flex flex-col border border-dark p-1 rounded-lg header-fade-in">
+    <label for="password" class="ps-2 text-sm">Senha</label>
+    <input id="password" type="password" class="bg-light" [(ngModel)]="userCredentials.password">
+  </div>
 
-<div class="flex gap-2 bg-blue-400 p-2">
-  <input type="text" [(ngModel)]="userCredentials.email">
-  <input type="text" [(ngModel)]="userCredentials.password">
-  <button (click)="tryLogin()">Login</button>
+  <button (click)="tryLogin()" class="transition-all hover:bg-darkHover mx-auto bg-dark font-marko text-light py-2 px-8
+  rounded-3xl w-fit mt-2 text-fade-in">
+    Entrar
+  </button>
+
+  <a class="ms-auto flex w-fit py-2 gap-2 text-fade-in relative before:transition-all before:z-10
+    before:ease-in-out before:bg-dark before:absolute before:bottom-0 before:w-full before:h-0 hover:before:h-1.5"
+     [routerLink]="['/signup']">
+    <p class="font-inter font-medium"> Criar Conta </p>
+  </a>
 </div>
+
