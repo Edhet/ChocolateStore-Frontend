@@ -1,7 +1,7 @@
 <div class="flex flex-wrap justify-center md:justify-start gap-4 text-light min-h-[23rem]">
   <div class="bg-dark min-w-[18rem] max-w-[18rem] min-h-[22rem] max-h-[22rem] font-marko rounded-lg p-3 product-fade-in"
        *ngFor="let product of productList">
-    <img class="rounded-lg" src="./assets/home/whitechoc.png">
+    <img class="rounded-lg" src="./assets/products/{{getImageByString(product.category)}}">
     <div class="flex justify-between mt-3">
       <div>
         <p class="text-lg"> {{ product.name }} </p>

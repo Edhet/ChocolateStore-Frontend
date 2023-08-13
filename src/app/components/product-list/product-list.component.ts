@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import Product from "../../types/product";
-import {createFakePrice} from "../../util/util";
+import {createFakePrice, getImageByString} from "../../util/util";
 
 @Component({
   selector: 'app-product-list',
@@ -13,4 +13,6 @@ export class ProductListComponent {
   public createFakePrice(actualPrice: number) {
     return createFakePrice(actualPrice)
   }
+
+    protected readonly getImageByString = getImageByString;
 }
