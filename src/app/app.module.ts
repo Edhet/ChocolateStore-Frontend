@@ -20,6 +20,9 @@ import {ProductListComponent} from './components/product-list/product-list.compo
 import {AboutUsComponent} from './pages/about-us/about-us.component';
 import {PageNotFoundComponent} from './pages/page-not-found/page-not-found.component';
 import {ProductCardsComponent} from './components/product-cards/product-cards.component';
+import { ToastComponent } from './modals/toast/toast.component';
+import {ModalsModule} from "./modals/modals.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -36,14 +39,16 @@ import {ProductCardsComponent} from './components/product-cards/product-cards.co
     ProductListComponent,
     AboutUsComponent,
     PageNotFoundComponent,
-    ProductCardsComponent
+    ProductCardsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    ModalsModule,
+    BrowserAnimationsModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

@@ -12,7 +12,7 @@
   </div>
 </nav>
 
-<main class="absolute flex justify-center top-0 left-0 w-screen h-screen md:p-12">
+<main class="absolute flex justify-center top-0 left-0 w-screen h-screen p-3 md:p-12">
   <app-login *ngIf="!creatingAccount; else SignUp" class="flex w-fit h-fit m-auto"></app-login>
   <ng-template #SignUp>
     <app-signup class="flex w-fit h-fit m-auto"></app-signup>

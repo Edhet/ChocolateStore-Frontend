@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import LoginCredentials from "../../types/login-credentials";
 import {Router} from "@angular/router";
+import {ToastComponent} from "../../modals/toast/toast.component";
 
 @Component({
   selector: 'app-login',
@@ -9,19 +10,30 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  public userCredentials: LoginCredentials = {email: "", password: ""};
-  public errorMessage?: string;
+  @ViewChild('toast') toast?: ToastComponent
+
+  public userCredentials: LoginCredentials = {email: "", password: ""}
+  public errorMessage?: string
+
+  public fetchingRequest = false
 
   constructor(private authService: AuthService, private router: Router) {
   }
 
-  // TODO: Show error information
   public async tryLogin() {
-    if (!this.userCredentials.email || !this.userCredentials.password)
+    this.errorMessage = undefined
+    if (!this.userCredentials.email || !this.userCredentials.password) {
+      this.toast?.showMessage("Preencha todos os campos")
       return
+    }
 
+    this.fetchingRequest = true
     const response = await this.authService.login(this.userCredentials)
-    if (!response)
+    if (!response) {
       await this.router.navigate(["profile"])
+    } else {
+      this.toast?.showMessage(response.msg)
+      this.fetchingRequest = false
+    }
   }
 }

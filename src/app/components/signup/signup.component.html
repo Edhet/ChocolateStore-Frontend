@@ -21,7 +21,7 @@
   </div>
   <div class="flex flex-col border border-dark p-1 rounded-lg header-fade-in">
     <label for="birthDate" class="ps-2 text-sm">Aniversário</label>
-    <input id="birthDate" type="date" class="bg-light"  [(ngModel)]="userCredentials.birthDate">
+    <input id="birthDate" type="date" class="bg-light" [max]="TODAY" [(ngModel)]="userCredentials.birthDate">
   </div>
   <div class="flex flex-col border border-dark p-1 rounded-lg header-fade-in">
     <label class="ps-2 text-sm">Sexo</label>
@@ -37,14 +37,24 @@
     </div>
   </div>
 
-  <button (click)="signUp()" class="transition-all hover:bg-darkHover mx-auto bg-dark font-marko text-light py-2 px-8
-  rounded-3xl w-fit mt-2 text-fade-in">
+  <button (click)="signUp()" *ngIf="!fetchingRequest; else spinner"
+          class="transition-all hover:bg-darkHover mx-auto bg-dark font-marko text-light py-2 px-8 rounded-3xl w-fit mt-2 text-fade-in">
     Criar
   </button>
+  <ng-template #spinner>
+    <div class="h-full w-full flex justify-center">
+      <svg class="animate-spin mt-4 h-8 w-8 text-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    </div>
+  </ng-template>
 
   <a class="ms-auto flex w-fit py-2 gap-2 text-fade-in relative before:transition-all before:z-10
     before:ease-in-out before:bg-dark before:absolute before:bottom-0 before:w-full before:h-0 hover:before:h-1.5"
      [routerLink]="['/login']">
-    <p class="font-inter font-medium"> Entrar </p>
+    <p class="font-montserrat font-medium"> Entrar </p>
   </a>
 </div>
+
+<app-toast #toast></app-toast>

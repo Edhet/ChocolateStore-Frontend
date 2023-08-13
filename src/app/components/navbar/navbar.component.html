@@ -44,19 +44,22 @@
   </div>
 </nav>
 
-<div *ngIf="showHamburgerMenu" class="fixed top-0 left-0 w-[100vw] h-[100vh] bg-light font-montserrat text-dark z-50">
-  <button class="absolute top-4 right-4 navbar-fade-in" (click)="showHamburgerMenu = false">
-    <svg class="bi bi-x-lg h-6 w-6 text-dark" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  viewBox="0 0 16 16">
-      <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-    </svg>
-  </button>
+<div *ngIf="showHamburgerMenu" class="flex fixed top-0 left-0 w-[100vw] h-[100vh] bg-light font-montserrat text-dark z-50">
+  <div class="absolute flex justify-between w-full top-4 right-0 px-12 navbar-fade-in">
+    <h1 class="font-marko">DuCacau</h1>
+    <button (click)="showHamburgerMenu = false">
+      <svg class="bi bi-x-lg h-6 w-6 text-dark" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  viewBox="0 0 16 16">
+        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+      </svg>
+    </button>
+  </div>
 
-  <div class="flex flex-col text-center mt-12 gap-4">
-    <a class="text-fade-in" (click)="showHamburgerMenu = false" [routerLink]="['/home']"> Início </a>
-    <a class="text-fade-in" (click)="showHamburgerMenu = false" [routerLink]="['/products']"> Produtos </a>
-    <a class="text-fade-in" (click)="showHamburgerMenu = false" [routerLink]="['/about-us']"> Sobre nós </a>
-    <a class="text-fade-in" (click)="showHamburgerMenu = false" [routerLink]="['/cart']"> Carrinho </a>
-    <a class="text-fade-in" (click)="showHamburgerMenu = false" [routerLink]="['/profile']"> Perfil </a>
+  <div class="flex flex-col text-center m-auto h-auto gap-4">
+    <a class="p-1 text-fade-in" (click)="showHamburgerMenu = false" [routerLink]="['/home']"> Início </a>
+    <a class="p-1 text-fade-in" (click)="showHamburgerMenu = false" [routerLink]="['/products']"> Produtos </a>
+    <a class="p-1 text-fade-in" (click)="showHamburgerMenu = false" [routerLink]="['/about-us']"> Sobre nós </a>
+    <a class="p-1 text-fade-in" (click)="showHamburgerMenu = false" [routerLink]="['/cart']"> Carrinho </a>
+    <a class="p-1 text-fade-in" (click)="showHamburgerMenu = false" [routerLink]="['/profile']"> Perfil </a>
   </div>
 </div>
 
