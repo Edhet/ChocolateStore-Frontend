@@ -13,7 +13,8 @@ export class ContentService {
   private readonly PRODUCTS_ENDPOINT = environment.apiUrl + "/products"
   private readonly CATEGORY_ENDPOINT = environment.apiUrl + "/category"
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   public async getProduct(id: number): Promise<Product | ErrorDetails> {
     let request = this.httpClient.get<Product>(this.PRODUCTS_ENDPOINT + "/" + id)

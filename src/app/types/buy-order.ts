@@ -1,7 +1,7 @@
 import Product from "./product";
 
 export default interface BuyOrder {
-  id: number,
+  id?: number,
   product: Product,
   amount: number
 }

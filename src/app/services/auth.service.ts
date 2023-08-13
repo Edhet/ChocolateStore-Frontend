@@ -29,7 +29,7 @@ export class AuthService {
     if (!this.cookieService.get(this.JWT_COOKIE_NAME))
       return false
 
-    const header = this.createAuthHeader()
+    const header = this.getAuthHeader()
     let request = this.httpClient.get(this.AUTH_ENDPOINT, {headers: header})
 
     return await firstValueFrom(request)
@@ -53,7 +53,7 @@ export class AuthService {
   }
 
   public async signup(newUser: UserInfo): Promise<void | ErrorDetails> {
-    const header = this.createAuthHeader()
+    const header = this.getAuthHeader()
     let request = this.httpClient.post<void>(this.SIGN_UP_ENDPOINT, newUser, {headers: header})
 
     return await firstValueFrom(request)
@@ -61,14 +61,14 @@ export class AuthService {
   }
 
   public async getUserInfo(): Promise<UserInfo> {
-    const header = this.createAuthHeader()
+    const header = this.getAuthHeader()
     let request = this.httpClient.get<UserInfo>(this.USER_INFO_ENDPOINT, {headers: header})
 
     return await firstValueFrom(request)
   }
 
   public async setAddress(address: Address): Promise<void | ErrorDetails> {
-    const header = this.createAuthHeader()
+    const header = this.getAuthHeader()
     let request = this.httpClient.put<void>(this.SET_ADDRESS_ENDPOINT, address, {headers: header})
 
     return await firstValueFrom(request)
@@ -76,14 +76,14 @@ export class AuthService {
   }
 
   public async setPreferredCategory(categoryName: string): Promise<void | ErrorDetails> {
-    const header = this.createAuthHeader()
+    const header = this.getAuthHeader()
     let request = this.httpClient.put<void>(this.SET_PREFERRED_ENDPOINT, categoryName, {headers: header})
 
     return await firstValueFrom(request)
         .catch(r => r.error as ErrorDetails)
   }
 
-  private createAuthHeader(): HttpHeaders {
+  public getAuthHeader(): HttpHeaders {
     return new HttpHeaders().set("Authorization", "Bearer " + this.cookieService.get(this.JWT_COOKIE_NAME))
   }
 }
