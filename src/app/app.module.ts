@@ -19,10 +19,11 @@ import {FooterComponent} from './components/footer/footer.component';
 import {ProductListComponent} from './components/product-list/product-list.component';
 import {AboutUsComponent} from './pages/about-us/about-us.component';
 import {PageNotFoundComponent} from './pages/page-not-found/page-not-found.component';
-import {ProductCardsComponent} from './components/product-cards/product-cards.component';
+import {ProductByCategoryComponent} from './components/product-by-category/product-by-category.component';
 import { ToastComponent } from './modals/toast/toast.component';
 import {ModalsModule} from "./modals/modals.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     ProductListComponent,
     AboutUsComponent,
     PageNotFoundComponent,
-    ProductCardsComponent,
+    ProductByCategoryComponent,
+    ProductCardComponent,
   ],
   imports: [
     BrowserModule,

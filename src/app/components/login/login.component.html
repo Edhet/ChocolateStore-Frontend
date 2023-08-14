@@ -1,7 +1,6 @@
 <div class="flex flex-col gap-2 text-dark font-inter z-10">
   <h1 class="font-inter font-bold text-fade-in text-xl">Fazer Login</h1>
 
-  <!--  TODO: fix autofill-->
   <div class="flex flex-col border border-dark p-1 rounded-lg header-fade-in">
     <label for="email" class="ps-2 text-sm">Email</label>
     <input id="email" type="text" class="bg-light" [(ngModel)]="userCredentials.email" [disabled]="fetchingRequest">

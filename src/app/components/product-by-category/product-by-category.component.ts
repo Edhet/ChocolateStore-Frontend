@@ -3,11 +3,11 @@ import Product from "../../types/product";
 import {createFakePrice, getImageByString} from 'src/app/util/util';
 
 @Component({
-  selector: 'app-product-cards',
-  templateUrl: './product-cards.component.html',
-  styleUrls: ['./product-cards.component.scss']
+  selector: 'app-product-by-category',
+  templateUrl: './product-by-category.component.html',
+  styleUrls: ['./product-by-category.component.scss']
 })
-export class ProductCardsComponent {
+export class ProductByCategoryComponent {
   @Input() productList: Product[] = []
 
   public createFakePrice(actualPrice: number) {

@@ -1,17 +1,5 @@
 <div class="flex gap-12 pe-6 min-h-[23rem] max-h-[23rem] md:pe-12 overflow-x-auto" *ngIf="productList.length > 0; else spinner">
-    <div class=" bg-dark min-w-[18rem] max-w-[18rem] min-h-[22rem] max-h-[22rem] font-marko rounded-lg p-3 product-fade-in" *ngFor="let product of productList">
-      <img class="rounded-lg" src="./assets/products/{{getImageByString(product.category)}}">
-      <div class="flex justify-between mt-3">
-        <div>
-          <p class="text-lg"> {{ product.name }} </p>
-          <p class="text-sm"> {{ product.category }} </p>
-        </div>
-        <div class="my-auto text-end">
-          <p> {{ product.price }} </p>
-          <p class="text-sm line-through"> {{ createFakePrice(product.price) }} </p>
-        </div>
-      </div>
-    </div>
+  <app-product-card *ngFor="let product of productList" [product]="product"></app-product-card>
 </div>
 <ng-template #spinner>
   <div class="h-full w-full flex justify-center min-h-[23rem] max-h-[23rem]">

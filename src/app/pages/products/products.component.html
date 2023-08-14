@@ -58,7 +58,7 @@
       <ng-container *ngIf="filteredCategoryProducts.length > 0; else empty">
         <div *ngFor="let category of filteredCategoryProducts">
           <p class="font-marko text-2xl px-12 mb-1 mt-2 header-fade-in">{{ category.name }}</p>
-          <app-product-cards [productList]="category.products"></app-product-cards>
+          <app-product-by-category [productList]="category.products"></app-product-by-category>
         </div>
       </ng-container>
       <ng-template #empty>
