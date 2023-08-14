@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {animate, style, transition, trigger} from "@angular/animations";
 
 @Component({
@@ -9,10 +9,10 @@ import {animate, style, transition, trigger} from "@angular/animations";
     trigger('toast', [
       transition(':enter', [
         style({opacity: 0}),
-        animate('250ms', style({opacity: 1}))
+        animate('200ms', style({opacity: 1}))
       ]),
       transition(':leave', [
-        animate('250ms', style({opacity: 0}))
+        animate('150ms', style({opacity: 0}))
       ])
     ])
   ]
@@ -23,8 +23,8 @@ export class ToastComponent {
 
   public async showMessage(message: string) {
     this.showingToast = true
-    this.message = message ?? "Um erro ocorreu"
-    await new Promise(resolve => setTimeout(resolve, 4000));
+    this.message = message ?? "Um erro não especificado ocorreu"
+    await new Promise(resolve => setTimeout(resolve, 4350));
     this.showingToast = false
     this.message = undefined
   }
