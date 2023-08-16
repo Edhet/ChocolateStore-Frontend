@@ -20,7 +20,8 @@ export class CartService {
 
   public async addProduct(order: BuyOrder): Promise<void | ErrorDetails> {
     const header = this.authService.getAuthHeader()
-    let request = this.httpClient.post<void>(this.ADD_ENDPOINT, order, {headers: header})
+    const requestBody: any = {productId: order.product.id, amount: order.amount}
+    let request = this.httpClient.post<void>(this.ADD_ENDPOINT, requestBody, {headers: header})
 
     return await firstValueFrom(request)
       .catch(r => r.error as ErrorDetails)

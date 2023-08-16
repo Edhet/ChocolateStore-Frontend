@@ -20,11 +20,10 @@ import {ProductListComponent} from './components/product-list/product-list.compo
 import {AboutUsComponent} from './pages/about-us/about-us.component';
 import {PageNotFoundComponent} from './pages/page-not-found/page-not-found.component';
 import {ProductByCategoryComponent} from './components/product-by-category/product-by-category.component';
-import { ToastComponent } from './modals/toast/toast.component';
 import {ModalsModule} from "./modals/modals.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { ProductCardComponent } from './components/product-card/product-card.component';
-import { OrderCardComponent } from './components/order-card/order-card.component';
+import {ProductCardComponent} from './components/product-card/product-card.component';
+import {OrderCardComponent} from './components/order-card/order-card.component';
 
 @NgModule({
   declarations: [

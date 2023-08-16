@@ -1,5 +1,5 @@
 <div class="flex gap-12 pe-6 min-h-[23rem] max-h-[23rem] md:pe-12 overflow-x-auto" *ngIf="productList.length > 0; else spinner">
-  <app-product-card *ngFor="let product of productList" [product]="product"></app-product-card>
+  <app-product-card *ngFor="let product of productList" [product]="product" (onClick)="treatCardClick($event)"></app-product-card>
 </div>
 <ng-template #spinner>
   <div class="h-full w-full flex justify-center min-h-[23rem] max-h-[23rem]">
@@ -9,3 +9,6 @@
     </svg>
   </div>
 </ng-template>
+
+<app-amount-selection #amountSelection (errorMessageEmitter)="toast.showMessage($event)"></app-amount-selection>
+<app-toast #toast></app-toast>

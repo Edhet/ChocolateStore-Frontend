@@ -1,0 +1,58 @@
+<div class="fixed flex justify-center items-center top-0 left-0 w-screen h-screen backdrop-blur-sm z-50"
+     *ngIf="showingSelection" (click)="showingSelection = false" @overlay>
+
+  <div
+    class="flex flex-col gap-2 bg-dark text-light font-inter rounded-lg shadow-xl w-full mx-12 md:w-[50%] xl:w-[30%] h-fit"
+    (click)="$event.stopPropagation()">
+    <div class="pt-3 px-3">
+
+      <div class="flex justify-between">
+        <p class="font-marko text-lg my-auto truncate ...">Adicionar ao carrinho</p>
+        <button (click)="showingSelection = false"
+                class="transition-all hover:bg-lightHover bg-light text-dark font-marko p-3 rounded-3xl w-fit">
+          <svg class="bi bi-x-lg h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+               viewBox="0 0 16 16">
+            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0
+          0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="text-sm">
+        <p class="font-marko text-base">{{buyOrder!.product.name}}</p>
+        <p>{{buyOrder!.product.category}}</p>
+        <p>R${{buyOrder!.product.price}} (Unidade)</p>
+      </div>
+
+      <div class="flex justify-center">
+        <button (click)="subtractAmount()" [disabled]="buyOrder!.amount == 1"
+                class="transition-all hover:bg-lightHover bg-light text-dark font-marko p-2 rounded-3xl w-fit">
+          <svg class="bi bi-dash" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+               viewBox="0 0 16 16">
+            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+          </svg>
+        </button>
+        <div class="w-12 text-center">
+          <p class="text-2xl font-marko w-full">{{buyOrder?.amount}}</p>
+        </div>
+        <button (click)="addAmount()"
+                class="transition-all hover:bg-lightHover bg-light text-dark font-marko p-2 rounded-3xl w-fit">
+          <svg class="bi bi-plus" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+               viewBox="0 0 16 16">
+            <path
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+          </svg>
+        </button>
+      </div>
+
+      <div>
+        <p class="text-lg font-marko">Subtotal:
+          <span class="font-inter text-lg">R${{buyOrder!.amount * buyOrder!.product.price}}</span>
+        </p>
+      </div>
+    </div>
+    <button class="bg-light hover:bg-lightHover transition-all text-dark font-marko p-2 rounded-b-lg w-full"
+            (click)="addItem()">
+      Adicionar
+    </button>
+  </div>
+</div>

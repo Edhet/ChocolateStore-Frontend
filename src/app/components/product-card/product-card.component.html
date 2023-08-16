@@ -1,8 +1,8 @@
-<div class="transition-all bg-dark hover:bg-darkHover min-w-[18rem] max-w-[18rem] min-h-[22rem] max-h-[22rem] font-marko rounded-lg p-3 product-fade-in"
-  (click)="onClick()">
+<button class="transition-all bg-dark hover:bg-darkHover min-w-[18rem] max-w-[18rem] min-h-[22rem] max-h-[22rem] font-marko rounded-lg p-3 product-fade-in"
+  (click)="onClick.emit(product)">
   <img class="rounded-lg" src="./assets/products/{{getImageByString(product!.category)}}">
   <div class="flex justify-between mt-3">
-    <div>
+    <div class="text-start">
       <p class="text-lg"> {{ product!.name }} </p>
       <p class="text-sm"> {{ product!.category }} </p>
     </div>
@@ -11,4 +11,4 @@
       <p class="text-sm line-through"> {{ createFakePrice(product!.price) }} </p>
     </div>
   </div>
-</div>
+</button>

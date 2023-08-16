@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import BuyOrder from "../../types/buy-order";
 import {getImageByString} from "../../util/util";
 

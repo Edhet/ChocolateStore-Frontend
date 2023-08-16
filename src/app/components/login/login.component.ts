@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import LoginCredentials from "../../types/login-credentials";
 import {Router} from "@angular/router";

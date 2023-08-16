@@ -23,7 +23,7 @@ export class ToastComponent {
 
   public async showMessage(message: string) {
     this.showingToast = true
-    this.message = message ?? "Um erro não especificado ocorreu"
+    this.message = message ?? "Ocorreu um error no servidor"
     await new Promise(resolve => setTimeout(resolve, 4350));
     this.showingToast = false
     this.message = undefined

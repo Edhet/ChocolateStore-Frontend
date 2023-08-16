@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import {NavigationEnd, NavigationStart, Router} from "@angular/router";
-import {Subject} from "rxjs";
+import {Component} from '@angular/core';
+import {NavigationEnd, Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',

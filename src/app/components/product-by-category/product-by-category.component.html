@@ -1,4 +1,7 @@
 <div class="flex flex-wrap justify-center md:justify-start gap-4 text-light min-h-[23rem]">
-  <app-product-card *ngFor="let product of productList" [product]="product"></app-product-card>
+  <app-product-card *ngFor="let product of productList" [product]="product" (onClick)="treatCardClick($event)"></app-product-card>
 </div>
+
+<app-amount-selection #amountSelection (errorMessageEmitter)="toast.showMessage($event)"></app-amount-selection>
+<app-toast #toast></app-toast>
 

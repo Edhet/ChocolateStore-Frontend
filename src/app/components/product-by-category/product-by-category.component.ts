@@ -1,6 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, ViewChild} from '@angular/core';
 import Product from "../../types/product";
-import {createFakePrice, getImageByString} from 'src/app/util/util';
+import {AmountSelectionComponent} from "../../modals/amount-selection/amount-selection.component";
 
 @Component({
   selector: 'app-product-by-category',
@@ -8,11 +8,10 @@ import {createFakePrice, getImageByString} from 'src/app/util/util';
   styleUrls: ['./product-by-category.component.scss']
 })
 export class ProductByCategoryComponent {
+  @ViewChild('amountSelection') amountSelection?: AmountSelectionComponent
   @Input() productList: Product[] = []
 
-  public createFakePrice(actualPrice: number) {
-    return createFakePrice(actualPrice)
+  public async treatCardClick(product: Product) {
+    this.amountSelection?.showAmountSelection(product)
   }
-
-    protected readonly getImageByString = getImageByString;
 }

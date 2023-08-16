@@ -1,8 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import Product from "../../types/product";
 import {createFakePrice, getImageByString} from 'src/app/util/util';
-import {AuthService} from "../../services/auth.service";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-product-card',
@@ -11,14 +9,7 @@ import {Router} from "@angular/router";
 })
 export class ProductCardComponent {
   @Input() product?: Product
-
-  constructor(private authService: AuthService, private router: Router) {
-  }
-
-  public async onClick() {
-    if (!await this.authService.userIsLogged())
-      await this.router.navigate(['/login'])
-  }
+  @Output() onClick: EventEmitter<Product> = new EventEmitter<Product>()
 
   public createFakePrice(actualPrice: number) {
     return createFakePrice(actualPrice)
