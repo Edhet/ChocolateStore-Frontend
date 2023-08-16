@@ -24,6 +24,7 @@ import { ToastComponent } from './modals/toast/toast.component';
 import {ModalsModule} from "./modals/modals.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { OrderCardComponent } from './components/order-card/order-card.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     PageNotFoundComponent,
     ProductByCategoryComponent,
     ProductCardComponent,
+    OrderCardComponent,
   ],
   imports: [
     BrowserModule,

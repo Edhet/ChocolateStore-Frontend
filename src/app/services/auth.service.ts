@@ -18,7 +18,6 @@ export class AuthService {
   private readonly AUTH_ENDPOINT = environment.apiUrl + "/auth"
   private readonly SIGN_UP_ENDPOINT = environment.apiUrl + "/auth/signup"
 
-  private readonly USER_INFO_ENDPOINT = environment.apiUrl + "/info"
   private readonly SET_PREFERRED_ENDPOINT = environment.apiUrl + "/info/category"
   private readonly SET_ADDRESS_ENDPOINT = environment.apiUrl + "/address"
 
@@ -58,13 +57,6 @@ export class AuthService {
 
     return await firstValueFrom(request)
       .catch(r => r.error as ErrorDetails)
-  }
-
-  public async getUserInfo(): Promise<UserInfo> {
-    const header = this.getAuthHeader()
-    let request = this.httpClient.get<UserInfo>(this.USER_INFO_ENDPOINT, {headers: header})
-
-    return await firstValueFrom(request)
   }
 
   public async setAddress(address: Address): Promise<void | ErrorDetails> {

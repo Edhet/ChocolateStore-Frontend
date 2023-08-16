@@ -1,4 +1,5 @@
-<div class="bg-dark min-w-[18rem] max-w-[18rem] min-h-[22rem] max-h-[22rem] font-marko rounded-lg p-3 product-fade-in">
+<div class="transition-all bg-dark hover:bg-darkHover min-w-[18rem] max-w-[18rem] min-h-[22rem] max-h-[22rem] font-marko rounded-lg p-3 product-fade-in"
+  (click)="onClick()">
   <img class="rounded-lg" src="./assets/products/{{getImageByString(product!.category)}}">
   <div class="flex justify-between mt-3">
     <div>

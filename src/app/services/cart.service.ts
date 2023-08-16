@@ -38,7 +38,7 @@ export class CartService {
 
   public async finishBuy(): Promise<void | ErrorDetails> {
     const header = this.authService.getAuthHeader()
-    let request = this.httpClient.post<void>(this.FINISH_ENDPOINT, {headers: header})
+    let request = this.httpClient.post<void>(this.FINISH_ENDPOINT, null, {headers: header})
 
     return await firstValueFrom(request)
       .catch(r => r.error as ErrorDetails)

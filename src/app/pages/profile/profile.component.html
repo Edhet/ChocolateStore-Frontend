@@ -1,2 +1,98 @@
-<p>profile works!</p>
-<button (click)="logOut()">logout</button>
+<h1 class="mx-auto text-dark font-marko text-[6vmin] mt-[2%] lg:text-4xl w-fit text-center header-fade-in">
+  Perfil
+</h1>
+<section class="px-12 md:px-[20%] mt-[2%] text-dark font-inter">
+  <div>
+    <div class="flex gap-2 justify-between mb-1">
+      <h2 class="font-marko text-xl min-w-fit">Informações da Conta</h2>
+      <div class="my-auto bg-dark rounded-full h-[3px] w-full"></div>
+    </div>
+    <div class="text-fade-in min-h-[6rem]" *ngIf="!fetchingData; else spinner">
+      <p>Nome: {{userInfo?.firstName + " " + userInfo?.surname}}</p>
+      <p>Email: {{userInfo?.email}}</p>
+      <p>Idade: {{age}} Anos</p>
+      <p>Sexo: {{userInfo?.gender == "MALE" ? "Homem" : "Mulher" }}</p>
+    </div>
+    <ng-template #spinner>
+      <div class="min-h-[6rem] w-full flex justify-center">
+        <svg class="animate-spin my-auto h-8 w-8 text-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="header-fade-in">
+    <h2 class="font-inter font-bold my-1">Categoria preferida</h2>
+    <div class="flex flex-col md:flex-row justify-between border border-dark mt-4 mx-4 mb-2 rounded-3xl md:rounded-full font-marko">
+      <button class="p-2 rounded-full transition-all {{userInfo?.preferredCategory == category ? 'bg-dark text-light' : 'hover:outline hover:outline-1 hover:outline-dark'}}"
+              *ngFor="let category of categories" (click)="changePreferredCategory(category)">
+        {{category}}
+      </button>
+    </div>
+  </div>
+
+  <button (click)="logOut()" class="mt-2 transition-all hover:bg-darkHover bg-dark font-marko text-light py-2 px-8
+rounded-3xl w-fit header-fade-in">
+    Sair
+  </button>
+</section>
+
+<section class="text-dark px-12 md:px-[20%] mt-[2%] mb-[5%] font-inter">
+  <div class="flex gap-2 justify-between mb-1">
+    <h1 class="font-marko text-xl min-w-fit">Informações de Entrega</h1>
+    <div class="my-auto bg-dark rounded-full h-[3px] w-full"></div>
+  </div>
+
+  <div class="flex flex-col gap-2" *ngIf="!fetchingAddress; else addressSpinner">
+
+    <div class="grid grid-cols-2 gap-2">
+      <div class="flex flex-col border border-dark p-1 rounded-lg header-fade-in w-auto">
+        <label for="country" class="ps-2 text-sm  truncate ...">País</label>
+        <input id="country" type="text" class="bg-light" [(ngModel)]="newAddressInfo.country">
+      </div>
+      <div class="flex flex-col border border-dark p-1 rounded-lg header-fade-in w-auto">
+        <label for="state" class="ps-2 text-sm  truncate ...">Estado</label>
+        <input id="state" type="text" class="bg-light" [(ngModel)]="newAddressInfo.state">
+      </div>
+    </div>
+
+    <div class="flex flex-col border border-dark p-1 rounded-lg header-fade-in">
+      <label for="city" class="ps-2 text-sm  truncate ...">Cidade</label>
+      <input id="city" type="text" class="bg-light" [(ngModel)]="newAddressInfo.city">
+    </div>
+
+
+    <div class="flex flex-col border border-dark p-1 rounded-lg header-fade-in">
+      <label for="postal" class="ps-2 text-sm  truncate ...">CEP</label>
+      <input id="postal" type="text" class="bg-light" [(ngModel)]="newAddressInfo.postalCode">
+    </div>
+
+    <div class="grid grid-cols-4 gap-2">
+      <div class="col-span-3 flex flex-col border border-dark p-1 rounded-lg header-fade-in">
+        <label for="road" class="ps-2 text-sm  truncate ...">Rua</label>
+        <input id="road" type="text" class="bg-light" [(ngModel)]="newAddressInfo.road">
+      </div>
+      <div class="col-span-1 flex flex-col border border-dark p-1 rounded-lg header-fade-in">
+        <label for="number" class="ps-2 text-sm  truncate ...">Número</label>
+        <input id="number" type="text" class="bg-light" [(ngModel)]="newAddressInfo.number">
+      </div>
+    </div>
+
+    <button (click)="updateAddressInformation()" class="mt-2 transition-all hover:bg-darkHover bg-dark font-marko text-light py-2 px-8
+rounded-3xl w-fit header-fade-in">
+      Atualizar
+    </button>
+  </div>
+  <ng-template #addressSpinner>
+    <div class="min-h-[18rem] w-full flex justify-center">
+      <svg class="animate-spin my-auto h-8 w-8 text-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    </div>
+  </ng-template>
+</section>
+<app-toast #toast></app-toast>
+

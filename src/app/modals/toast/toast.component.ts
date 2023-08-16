@@ -18,8 +18,8 @@ import {animate, style, transition, trigger} from "@angular/animations";
   ]
 })
 export class ToastComponent {
-  public showingToast = false
-  public message?: string
+  showingToast = false
+  message?: string
 
   public async showMessage(message: string) {
     this.showingToast = true

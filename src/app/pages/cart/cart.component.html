@@ -1,1 +1,76 @@
-<p>cart works!</p>
+<h1 class="mx-auto text-dark font-marko text-[6vmin] mt-[2%] lg:text-4xl w-fit text-center header-fade-in">
+  Carrinho
+</h1>
+<section class="px-12 md:px-[20%] mt-[2%] text-dark font-inter">
+  <div class="flex gap-2 justify-between mb-1">
+    <h1 class="font-marko text-xl min-w-fit">Itens no carrinho</h1>
+    <div class="my-auto bg-dark rounded-full h-[3px] w-full"></div>
+  </div>
+  <div class="flex flex-col gap-4" *ngIf="!fetchingData; else listSpinner">
+    <ng-container *ngIf="orders.length > 0; else empty">
+      <app-order-card *ngFor="let order of orders" [order]="order" (removed)="removeOrder($event)"></app-order-card>
+    </ng-container>
+    <ng-template #empty>
+      <p class="text-center my-4 font-marko text-lg">Não há produtos no carrinho</p>
+    </ng-template>
+  </div>
+  <ng-template #listSpinner>
+    <div class="flex justify-center">
+      <svg class="animate-spin my-8 h-8 w-8 ms-2 text-dark" xmlns="http://www.w3.org/2000/svg" fill="none"
+           viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    </div>
+  </ng-template>
+</section>
+
+<section class="px-12 md:px-[20%] mt-[2%] mb-[5%] text-dark font-inter">
+  <div class="flex gap-2 justify-between mb-1">
+    <h1 class="font-marko text-xl min-w-fit">Informações da compra</h1>
+    <div class="my-auto bg-dark rounded-full h-[3px] w-full"></div>
+  </div>
+  <div>
+    <p class="font-marko flex gap-2 items-center">Quantidade de itens no Carrinho:
+      <span class="font-inter text-lg" *ngIf="!fetchingData; else countSpinner">{{orders.length}}</span>
+      <ng-template #countSpinner>
+        <svg class="animate-spin my-auto h-4 w-4 text-dark" xmlns="http://www.w3.org/2000/svg" fill="none"
+             viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+      </ng-template>
+    </p>
+
+    <p class="font-marko flex gap-2 items-center">Total do Carrinho:
+      <span class="font-inter text-lg" *ngIf="!fetchingData; else totalSpinner">R${{cartTotal}}</span>
+      <ng-template #totalSpinner>
+        <svg class="animate-spin my-auto h-4 w-4 text-dark" xmlns="http://www.w3.org/2000/svg" fill="none"
+             viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+      </ng-template>
+    </p>
+  </div>
+
+
+  <div class="flex gap-2 mt-2">
+    <button class="transition-all hover:bg-darkHover bg-dark mt-auto text-light font-marko py-2 px-3 rounded-3xl w-fit"
+            (click)="clearOrders()" [disabled]="orders.length < 1">
+      Comprar
+    </button>
+    <button class="transition-all hover:bg-darkHover bg-dark mt-auto text-light font-marko py-2 px-3 rounded-3xl w-fit"
+            (click)="clearOrders()" [disabled]="orders.length < 1">
+      <svg class="bi bi-trash2 h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+           viewBox="0 0 16 16">
+        <path
+          d="M14 3a.702.702 0 0 1-.037.225l-1.684 10.104A2 2 0 0 1 10.305 15H5.694a2 2 0 0 1-1.973-1.671L2.037 3.225A.703.703 0 0 1 2 3c0-1.105 2.686-2 6-2s6 .895 6 2zM3.215 4.207l1.493 8.957a1 1 0 0 0 .986.836h4.612a1 1 0 0 0 .986-.836l1.493-8.957C11.69 4.689 9.954 5 8 5c-1.954 0-3.69-.311-4.785-.793z"/>
+      </svg>
+    </button>
+  </div>
+</section>
+<app-toast #toast></app-toast>

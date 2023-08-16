@@ -1,6 +1,8 @@
 import {Component, Input} from '@angular/core';
 import Product from "../../types/product";
-import { createFakePrice, getImageByString } from 'src/app/util/util';
+import {createFakePrice, getImageByString} from 'src/app/util/util';
+import {AuthService} from "../../services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-product-card',
@@ -8,11 +10,19 @@ import { createFakePrice, getImageByString } from 'src/app/util/util';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent {
-    @Input() product?: Product
+  @Input() product?: Product
 
-    public createFakePrice(actualPrice: number) {
-        return createFakePrice(actualPrice)
-    }
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
-    protected readonly getImageByString = getImageByString;
+  public async onClick() {
+    if (!await this.authService.userIsLogged())
+      await this.router.navigate(['/login'])
+  }
+
+  public createFakePrice(actualPrice: number) {
+    return createFakePrice(actualPrice)
+  }
+
+  protected readonly getImageByString = getImageByString;
 }
