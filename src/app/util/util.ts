@@ -4,10 +4,9 @@ export function createFakePrice(actualPrice: number) {
 
 // My instance of AWS S3
 const imageByCategory: Map<string, string> = new Map<string, string>([
-  ["White Chocolate", "whitechoc.png"],
-  ["Milk Chocolate", "milkchoc.png"],
-  ["Dark Chocolate", "darkchoc.png"]
-
+  ["Branco", "whitechoc.png"],
+  ["Ao Leite", "milkchoc.png"],
+  ["Meio Amargo", "darkchoc.png"]
 ])
 
 export function getImageByString(string: string): string | null {
