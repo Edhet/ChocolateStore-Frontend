@@ -1,5 +1,5 @@
 const environment = {
-  apiUrl: "http://localhost:8080/api/v1"
+  apiUrl: "https://ducacau-backend.onrender.com/api/v1"
 }
 
 export default environment;
