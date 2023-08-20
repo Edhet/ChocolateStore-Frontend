@@ -78,7 +78,6 @@ export class ProfileComponent implements OnInit {
 
     this.fetchingAddress = true
     let response = await this.personalInfoService.updateAddress(this.newAddressInfo!)
-    console.log(response)
     if (!response)
       this.userInfo!.address = this.newAddressInfo
     else
@@ -87,8 +86,12 @@ export class ProfileComponent implements OnInit {
   }
 
   private changedValue(newAddress: Address, oldAddress?: Address | null) {
+    if (!oldAddress)
+      return true
+
     const newValues = Object.values(newAddress)
     const oldValues = Object.values(oldAddress!)
+
     for (const val of newValues)
       if (!oldValues.includes(val))
         return true
