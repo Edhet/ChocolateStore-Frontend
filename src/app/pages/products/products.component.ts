@@ -8,8 +8,6 @@ import Category from "../../types/category";
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  private readonly invalidChars = ['-', '+', 'e', 'E', '.'];
-
   public categoryFilters: string[] = []
 
   public inactiveCategories: string[] = []
