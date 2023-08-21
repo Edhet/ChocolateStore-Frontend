@@ -7,7 +7,18 @@ import {ToastComponent} from "../../modals/toast/toast.component";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [
+    trigger('toast', [
+      transition(':enter', [
+        style({opacity: 0}),
+        animate('200ms', style({opacity: 1}))
+      ]),
+      transition(':leave', [
+        animate('150ms', style({opacity: 0}))
+      ])
+    ])
+  ]
 })
 export class HomeComponent implements OnInit {
   @ViewChild('toast') toast?: ToastComponent
